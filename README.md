@@ -27,7 +27,9 @@ Follow these steps to run the project locally:
    Create a .env.local file in the root of the project and paste the following:
    AUTH_SECRET="u+3qFPA9SVBjEYqtPqGf5Op3h7+1qFFiWo+IGioUOxM="
 
-   NEXT_PUBLIC_API_URL=http://localhost:5000
+   NEXT_PUBLIC_API_URL=http://localhost:5000 
+   or 
+   NEXT_PUBLIC_API_URL=https://audio-text-app.onrender.com
 
    NEXTAUTH_URL="http://localhost:3000"
 
