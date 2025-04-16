@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { User as AuthUser } from "@auth/core/types";
 import { API_URL } from "./lib/utils/constants";
 
-type AdaptedUser = AuthUser & {
+export type AdaptedUser = AuthUser & {
   id: string;
   email: string;
   fullName: string;

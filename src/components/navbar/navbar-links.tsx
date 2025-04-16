@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils/utils";
 import type { JSX } from "react";
 import { navLinks } from "./navbar";
 import type { Session } from "next-auth";
-import { LogIn, LogOut, User } from "lucide-react";
-import { signOut } from "next-auth/react";
+import { LogIn, Settings, User } from "lucide-react";
+import { useRouter } from "nextjs-toploader/app";
 
 export function NavbarLinks({
   session,
@@ -16,6 +16,7 @@ export function NavbarLinks({
   session: Session | null;
 }): JSX.Element {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <>
@@ -53,19 +54,19 @@ export function NavbarLinks({
       })}
       {session?.user ? (
         <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-          <h2>{session.user.fullName}</h2>
           <User />
+          <h2>{session.user.fullName}</h2>
         </div>
       ) : null}
       {session?.user ? (
         <motion.button
-          onClick={() => signOut()}
-          className="relative flex cursor-pointer items-center space-x-1 text-red-600 duration-200 hover:text-red-500 dark:text-red-500 dark:hover:text-red-700"
+          onClick={() => router.push("/dashboard")}
+          className="relative flex cursor-pointer items-center space-x-1 text-gray-600 duration-200 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <LogOut className="h-5 w-5" />
-          <span>Logout</span>
+          <Settings className="h-5 w-5" />
+          <span>Dashboard</span>
         </motion.button>
       ) : (
         <Link href="/login">

@@ -37,7 +37,7 @@ export function useDeleteRecording(
       }
 
       toast.success("Recording deleted successfully.");
-      window.location.reload();
+      setTimeout(() => window.location.reload(), 1000);
     } catch (err) {
       const error =
         err instanceof Error ? err : new Error("Unknown error occurred");

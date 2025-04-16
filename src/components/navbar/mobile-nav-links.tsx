@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils/utils";
 import type { JSX } from "react";
 import { navLinks } from "./navbar";
 import type { Session } from "next-auth";
-import { LogIn, LogOut, User } from "lucide-react";
-import { signOut } from "next-auth/react";
+import { LogIn, Settings, User } from "lucide-react";
+import { useRouter } from "nextjs-toploader/app";
 
 type MobileNavLinksProps = {
   closeMenu: () => void;
@@ -22,6 +22,7 @@ export function MobileNavLinks({
   session,
 }: MobileNavLinksProps): JSX.Element {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <motion.div
@@ -64,12 +65,12 @@ export function MobileNavLinks({
         ) : null}
         {session?.user ? (
           <motion.button
-            onClick={() => signOut()}
-            className="flex w-full cursor-pointer items-center space-x-3 rounded-md px-4 text-red-600 hover:bg-red-50 hover:text-red-500 dark:text-red-500 dark:hover:bg-[#121212]/50 dark:hover:text-red-700"
+            onClick={() => router.push("/dashboard")}
+            className="flex w-full cursor-pointer items-center space-x-3 rounded-md px-4 text-gray-600 hover:bg-gray-50 hover:text-gray-500 dark:text-gray-300 dark:hover:bg-[#121212]/50 dark:hover:text-white"
             whileHover={{ x: 5 }}
           >
-            <LogOut className="h-5 w-5" />
-            <span className="">Logout</span>
+            <Settings className="h-5 w-5" />
+            <span className="">Dashboard</span>
           </motion.button>
         ) : (
           <Link href="/login">

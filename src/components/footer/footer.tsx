@@ -24,7 +24,7 @@ export function Footer(): JSX.Element {
 
   const contactInfo = [
     { icon: <Mail size={16} />, text: "contact@visionyze.com" },
-    { icon: <MapPin size={16} />, text: "612 SIDI AHMED, bejaia, Algeria" },
+    { icon: <MapPin size={16} />, text: "20 Aout, Bejaia, Algeria" },
     { icon: <Phone size={16} />, text: "+213 666666666" },
   ];
 
